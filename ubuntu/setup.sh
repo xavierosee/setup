@@ -67,6 +67,7 @@ code --install-extension redhat.vscode-yaml
 sudo apt install -y zsh curl vim imagemagick jq
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+cp fonts ~/.fonts
 
 # install Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -90,6 +91,7 @@ sudo apt-get update && sudo apt-get install -y google-cloud-sdk google-cloud-sdk
 git clone --recurse-submodules https://github.com/xavierosee/dotfiles
 mv dotfiles ~/.dotfiles
 cd ~/.dotfiles && ./install.sh
+exec $SHELL
 
 
 # Install pyenv
