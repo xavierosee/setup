@@ -14,26 +14,8 @@ gh auth login
 
 # setup basic dev tools
 sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git apt-transport-https ca-certificates software-properties-common
-
-# zsh, OH-my-zsh & Powerlevel10k
-sudo apt install -y zsh
-chsh -s $(which zsh)
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-
-# install Docker
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-sudo apt update
-apt-cache policy docker-ce
-sudo apt install -y docker-ce
-sudo usermod -aG docker ${USER}
-su - ${USER}
-
-
-# Install pyenv and Python (latest stable)
-pyenv install $(pyenv install --list | grep -v - | grep -v rc | grep -v forge | tail -1)
+sudo snap install heroku --classic
+sudo snap install code --classic
 
 # Install VS Code extensions
 code --installhostnamectl set-hostname new-hostname-extension ms-vscode.sublime-keybindings
@@ -80,3 +62,36 @@ code --install-extension vense.rails-snippets
 code --install-extension cyrusfirheir.twee3-language-tools
 code --install-extension redhat.vscode-yaml
 
+
+# zsh, OH-my-zsh & Powerlevel10k
+sudo apt install -y zsh curl vim imagemagick jq
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+# install Docker
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+sudo apt update
+apt-cache policy docker-ce
+sudo apt install -y docker-ce
+sudo usermod -aG docker ${USER}
+su - ${USER}
+
+# Install Kite
+bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)"
+
+# Install Google Cloud CLI
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+sudo apt-get install apt-transport-https ca-certificates gnupg
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
+sudo apt-get update && sudo apt-get install google-cloud-sdk
+sudo apt-get install google-cloud-sdk-app-engine-python
+
+
+# Install pyenv
+curl https://pyenv.run/ | bash
+
+
+
+# Install Python (latest)
+pyenv install $(pyenv install --list | grep -v - | grep -v rc | grep -v forge | tail -1)
