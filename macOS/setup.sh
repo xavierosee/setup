@@ -142,11 +142,12 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 git config --global user.email "xrosee@live.cn"
 git config --global user.name "Xavier Rosée"
 sudo git config --system core.editor "vim"
+gh auth login
 
 # setup Mac name
-sudo scutil --set HostName Cloudsdale
-sudo scutil --set LocalHostName Cloudsdale
-sudo scutil --set ComputerName Cloudsdale
+sudo scutil --set HostName cloudsdale
+sudo scutil --set LocalHostName cloudsdale
+sudo scutil --set ComputerName cloudsdale
 
 # setup key repeating
 defaults write -g ApplePressAndHoldEnabled -bool false
