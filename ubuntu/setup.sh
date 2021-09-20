@@ -16,7 +16,8 @@ sudo snap install code --classic
 sudo snap install gh
 
 # install fonts for PowerLevel10k
-cp $SETUP_LOC/ubuntu/fonts ~/.fonts
+rm -rf ~/.fonts
+cp -r $SETUP_LOC/ubuntu/fonts ~/.fonts
 echo "Nerd Fonts successfully installed"
 
 # install Docker
@@ -40,11 +41,13 @@ sudo apt-get update && sudo apt-get install -y google-cloud-sdk google-cloud-sdk
 echo "Google Cloud Platform SDK successfully installed"
 
 # Install NVM
+rm - rf ~/.nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 source ~/.zshrc
 echo "NVM successfully installed"
 
 # Install pyenv
+rm -rf ~/.pyenv
 curl https://pyenv.run/ | bash
 echo "PyEnv successfully installed"
 
