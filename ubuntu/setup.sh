@@ -16,7 +16,7 @@ sudo snap install code --classic
 sudo snap install gh
 
 # install fonts for PowerLevel10k
-cp fonts ~/.fonts
+cp $SETUP_LOC/ubuntu/fonts ~/.fonts
 echo "Nerd Fonts successfully installed"
 
 # install Docker
@@ -26,7 +26,6 @@ sudo apt update
 apt-cache policy docker-ce
 sudo apt install -y docker-ce
 sudo usermod -aG docker ${USER}
-su - ${USER}
 echo "Docker successfully installed"
 
 # Install Kite
