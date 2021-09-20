@@ -25,7 +25,30 @@ You need to have `cURL` installed to install everything, so :
 curl -L https://raw.githubusercontent.com/xavierosee/setup/main/install.sh | bash
 ```
 
-Your computer should restart once at the end of the whole process, then you're good to go!
+Your computer should restart once at the end of the whole process.
+
+After restarting, upon opening your terminal :
+
+```bash
+chsh -s $(which zsh)
+```
+
+which should run you through the PowerLevel10k setup process.
+If not :
+
+```bash
+p10k configure
+```
+
+#### [[UBUNTU]Google Drive sync
+
+To enable the Google Drive daemon, run this command once:
+
+```bash
+google-drive-ocamlfuse ~/.google-drive
+```
+
+And you're set! :tada:
 
 ## Comments and feedback
 
