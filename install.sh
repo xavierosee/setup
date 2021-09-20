@@ -84,10 +84,6 @@ code --install-extension vense.rails-snippets
 code --install-extension cyrusfirheir.twee3-language-tools
 code --install-extension redhat.vscode-yaml
 
-# Install Python (latest) and set as global environment
-pyenv install $(pyenv install --list | grep -v - | grep -v rc | grep -v forge | tail -1)
-pyenv global $(pyenv versions | tail -1)
-
 # zsh, OH-my-zsh & Powerlevel10k
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
@@ -103,6 +99,10 @@ gh auth login
 git clone --recurse-submodules https://github.com/xavierosee/dotfiles
 mv dotfiles ~/.dotfiles
 cd ~/.dotfiles && ./install.sh
+
+# Install Python (latest) and set as global environment
+pyenv install $(pyenv install --list | grep -v - | grep -v rc | grep -v forge | tail -1)
+pyenv global $(pyenv versions | tail -1)
 
 # save the useful pictures
 cp $SETUP_LOC/avatar.jpg ~/Pictures/
