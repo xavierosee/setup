@@ -17,6 +17,7 @@ sudo snap install gh
 
 # install fonts for PowerLevel10k
 cp fonts ~/.fonts
+echo "Nerd Fonts successfully installed"
 
 # install Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -26,23 +27,27 @@ apt-cache policy docker-ce
 sudo apt install -y docker-ce
 sudo usermod -aG docker ${USER}
 su - ${USER}
+echo "Docker successfully installed"
 
 # Install Kite
 bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)"
+echo "Kite successfully installed"
 
 # Install Google Cloud CLI
 echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
 sudo apt-get install -y apt-transport-https ca-certificates gnupg
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 sudo apt-get update && sudo apt-get install -y google-cloud-sdk google-cloud-sdk-app-engine-python
+echo "Google Cloud Platform SDK successfully installed"
 
 # Install NVM
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 source ~/.zshrc
+echo "NVM successfully installed"
 
 # Install pyenv
 curl https://pyenv.run/ | bash
-exec $SHELL
+echo "PyEnv successfully installed"
 
 # Install various software and utilities
 ## First add the repositories
