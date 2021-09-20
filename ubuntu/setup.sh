@@ -97,14 +97,51 @@ sudo apt-get update && sudo apt-get install -y google-cloud-sdk google-cloud-sdk
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 source ~/.zshrc
 
+# Install pyenv
+curl https://pyenv.run/ | bash
+exec $SHELL
+
 # Install dotfiles
 git clone --recurse-submodules https://github.com/xavierosee/dotfiles
 mv dotfiles ~/.dotfiles
 cd ~/.dotfiles && ./install.sh
 exec $SHELL
 
-# Install pyenv
-curl https://pyenv.run/ | bash
-
-# Install Python (latest)
+# Install Python (latest) and set as global environment
 pyenv install $(pyenv install --list | grep -v - | grep -v rc | grep -v forge | tail -1)
+pyenv global $(pyenv versions | tail -1)
+
+# Install various software and utilities
+## First add the repositories
+sudo add-apt-repository --yes ppa:maarten-fonville/android-studio
+curl -s -o vpn.deb https://protonvpn.com/download/protonvpn-stable-release_1.0.1-1_all.deb && sudo dpkg -i vpn.deb && rm -rf vpn.deb
+sudo add-apt-repository --yes ppa:alessandro-strada/ppa
+sudo apt update
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
+
+
+## Then install the software
+sudo apt install -y tree
+sudo apt install -y mysql-client
+sudo apt install -y postgresql-client
+sudo apt install -y openjdk-11-jdk
+sudo snap install postman
+sudo snap install brave
+sudo apt install -y speedtest-cli
+sudo apt install -y protonvpn
+sudo snap install ferdi
+sudo apt install 1password
+
+### Google Drive sync
+sudo apt install -y google-drive-ocamlfuse
+google-drive-ocamlfuse
+mkdir ~/.google-drive
+google-drive-ocamlfuse ~/.google-drive
+
+
+echo "Congratulations! Your Cloudsdale setup is now over."
+echo "This computer will restart in 30 seconds"
+sleep 30
+sudo shutdown -r now
