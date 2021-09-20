@@ -4,6 +4,10 @@
 hostnamectl set-hostname cloudsdale
 hostnamectl set-hostname "Cloudsdale" --pretty
 
+# upgrade everything
+sudo apt update
+sudo apt upgrade -y
+
 # setup git & github
 sudo apt install git -y
 sudo snap install gh
@@ -67,6 +71,8 @@ code --install-extension redhat.vscode-yaml
 sudo apt install -y zsh curl vim imagemagick jq
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
 cp fonts ~/.fonts
 
 # install Docker
