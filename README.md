@@ -22,7 +22,7 @@ You need to have `cURL` installed to install everything, so :
 ### Install
 
 ```bash
-curl -L https://github.com/xavierosee/setup/install.sh | bash
+curl -L https://raw.githubusercontent.com/xavierosee/setup/main/install.sh | bash
 ```
 
 Your computer should restart once at the end of the whole process, then you're good to go!
