@@ -106,6 +106,10 @@ mv dotfiles ~/.dotfiles
 cd ~/.dotfiles && ./install.sh
 exec $SHELL
 
+# save the useful pictures
+cp avatar.jpg ~/Pictures/
+cp term_bg.jpg ~/Pictures/
+
 # delete all installation files
 rm -rf ~/.dotfiles
 rm -rf $SETUP_LOC
