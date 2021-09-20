@@ -32,10 +32,10 @@ git clone --recurse-submodules "${GITHUB}/xavierosee/setup.git" "${SETUP_LOC}"
 # Run OS-specific commands
 case $OSTYPE in
     darwin*)
-        sh macOS/setup.sh
+        sh $SETUP_LOC/macOS/setup.sh
     ;;
     linux-gnu*)
-        sh ubuntu/setup.sh
+        sh $SETUP_LOC/ubuntu/setup.sh
     ;;
 esac
 
