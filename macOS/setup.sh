@@ -88,6 +88,10 @@ mas install 1091189122 # Bear
 # setup key repeating
 defaults write -g ApplePressAndHoldEnabled -bool false
 
+#change Screenshot saving folder
+mkdir ${HOME}/screenshots
+defaults write com.apple.screencapture location ${HOME}/screenshots
+
 # 'disable' dock
 defaults write com.apple.dock tilesize -int 1
 killall Dock
