@@ -93,17 +93,18 @@ sudo apt-get install -y apt-transport-https ca-certificates gnupg
 curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 sudo apt-get update && sudo apt-get install -y google-cloud-sdk google-cloud-sdk-app-engine-python
 
+# Install NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+source ~/.zshrc
+
 # Install dotfiles
 git clone --recurse-submodules https://github.com/xavierosee/dotfiles
 mv dotfiles ~/.dotfiles
 cd ~/.dotfiles && ./install.sh
 exec $SHELL
 
-
 # Install pyenv
 curl https://pyenv.run/ | bash
-
-
 
 # Install Python (latest)
 pyenv install $(pyenv install --list | grep -v - | grep -v rc | grep -v forge | tail -1)
