@@ -51,7 +51,6 @@ code --install-extension ms-python.python
 code --install-extension KevinRose.vsc-python-indent
 code --install-extension ms-python.vscode-pylance
 code --install-extension ms-toolsai.jupyter
-code --install-extension ms-python.anaconda-extension-pack
 code --install-extension tlahmann.alex-linter
 code --install-extension formulahendry.auto-close-tag
 code --install-extension aaron-bond.better-comments
