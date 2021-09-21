@@ -69,7 +69,7 @@ echo " ##### PyEnv successfully installed ##### "
 # Install various software and utilities
 ## First add the repositories
 sudo add-apt-repository --yes ppa:maarten-fonville/android-studio
-curl -s -o vpn.deb https://protonvpn.com/download/protonvpn-stable-release_1.0.1-1_all.debib && sudo dpkg -i vpn.deb && rm -rf vpn.deb
+curl -s -o vpn.deb https://protonvpn.com/download/protonvpn-stable-release_1.0.1-1_all.deb && sudo dpkg -i vpn.deb && rm -rf vpn.deb
 sudo add-apt-repository --yes ppa:alessandro-strada/ppa
 curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
 echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
