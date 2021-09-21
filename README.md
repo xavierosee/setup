@@ -1,7 +1,7 @@
 # setup
 
 A repository with all the initial tools I need upon installing a new laptop.
-I have two different scripts for mac and ubuntu, as I use different OS on my home and work laptops.
+I have two different scripts for mac and linux, as I use different OS on my home and work laptops.
 
 Inspired by [David Leuliette's](https://github.com/flexbox) and [Preslav Mihaylov](https://github.com/preslavmihaylov) similar repositories.
 
@@ -40,7 +40,7 @@ If not :
 p10k configure
 ```
 
-#### [[UBUNTU]Google Drive sync
+#### [[LINUX]Google Drive sync
 
 To enable the Google Drive daemon, run this command once:
 
