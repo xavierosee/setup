@@ -38,7 +38,7 @@ case $OSTYPE in
         sh $SETUP_LOC/macOS/setup.sh
     ;;
     linux-gnu*)
-        sh $SETUP_LOC/ubuntu/setup.sh
+        sh $SETUP_LOC/linux/setup.sh
     ;;
 esac
 
