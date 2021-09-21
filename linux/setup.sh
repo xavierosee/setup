@@ -14,7 +14,7 @@ echo "packages successfully upgraded"
 
 # setup basic dev tools
 echo "installing basic dev tools"
-sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git apt-transport-https ca-certificates software-properties-common guake
+sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git apt-transport-https ca-certificates  software-properties-common guake snapd snap-store
 sudo apt install -y zsh curl vim imagemagick jq
 echo "installing heroku"
 sudo snap install heroku --classic
@@ -27,7 +27,7 @@ sudo snap install gh
 # install fonts for PowerLevel10k
 echo "installing Nerd Fonts"
 rm -rf ~/.fonts
-cp -r ~/.setup/ubuntu/fonts ~/.fonts
+cp -r ~/.setup/linux/fonts ~/.fonts
 echo "Nerd Fonts successfully installed"
 
 # install Docker
