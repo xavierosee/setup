@@ -56,10 +56,10 @@ echo " ##### Google Cloud Platform SDK successfully installed ##### "
 echo " ##### installing NVM ##### "
 rm -rf ~/.nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-source ~/.zshrc
-nvm install 14.17.6
-nvm alias default node
-echo " ##### NVM successfully installed, default node set to latest node version on system ##### "
+# source ~/.zshrc
+# nvm install 14.17.6
+# nvm alias default node
+echo " ##### NVM successfully installed ##### "
 
 # Install pyenv
 rm -rf ~/.pyenv

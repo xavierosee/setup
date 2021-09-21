@@ -109,11 +109,15 @@ git clone --recurse-submodules https://github.com/xavierosee/dotfiles
 mv dotfiles ~/.dotfiles
 cd ~/.dotfiles && ./install.sh
 
-# Install Python (latest) and set as global environment
-echo " ##### installing latest Python version ##### "
-pyenv install $(pyenv install --list | grep -v - | grep -v rc | grep -v forge | tail -1)
-echo " ##### setting this version as global virtualenv ##### "
-pyenv global $(pyenv versions | tail -1)
+# Install Python (latest) and set as global environment (only on mac)
+case $OSTYPE in
+    darwin*)
+        echo " ##### installing latest Python version ##### "
+        pyenv install $(pyenv install --list | grep -v - | grep -v rc | grep -v forge | tail -1)
+        echo " ##### setting this version as global virtualenv ##### "
+        pyenv global $(pyenv versions | tail -1)
+    ;;
+esac
 
 # save the useful pictures
 echo " ##### saving pictures to the Pictures folder ##### "
