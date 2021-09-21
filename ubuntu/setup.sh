@@ -96,6 +96,8 @@ sudo apt install -y protonvpn
 echo "installing ferdi"
 sudo snap install ferdi
 sudo apt install -y 1password
+echo "installing Apple Music"
+sudo snap install apple-music-for-linux
 
 ### Google Drive sync
 sudo apt install -y google-drive-ocamlfuse
