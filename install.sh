@@ -121,8 +121,9 @@ esac
 
 # save the useful pictures
 echo " ##### saving pictures to the Pictures folder ##### "
-cp $SETUP_LOC/avatar.jpg ~/Pictures/
-cp $SETUP_LOC/term_bg.jpg ~/Pictures/
+cp $SETUP_LOC/avatar.jpg $HOME/Pictures/
+cp $SETUP_LOC/term_bg.jpg $HOME/.local/share/backgrounds/fluttershy_bg.jpg
+cp $SETUP_LOC/term_bg.jpg $HOME/Pictures/fluttershy_bg.jpg
 
 # delete all installation files
 echo " ##### cleaning up... ##### "
