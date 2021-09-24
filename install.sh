@@ -125,6 +125,13 @@ cp $SETUP_LOC/avatar.jpg $HOME/Pictures/
 cp $SETUP_LOC/term_bg.jpg $HOME/.local/share/backgrounds/fluttershy_bg.jpg
 cp $SETUP_LOC/term_bg.jpg $HOME/Pictures/fluttershy_bg.jpg
 
+# set Linux system prefs
+case $OSTYPE in
+    linux-gnu*)
+        sh $SETUP_LOC/linux/prefs.sh
+    ;;
+esac
+
 # delete all installation files
 echo " ##### cleaning up... ##### "
 rm -rf ~/.dotfiles
