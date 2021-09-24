@@ -77,6 +77,7 @@ sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
  curl -sS https://downloads.1password.com/linux/debian/debsig/1password.pol | sudo tee /etc/debsig/policies/AC2D62742012EA22/1password.pol
  sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
  curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O dotnet.deb && sudo dpkg -i dotnet.deb && rm dotnet.deb
 
 ## update software list
 sudo apt update
@@ -86,6 +87,7 @@ sudo apt install -y tree
 sudo apt install -y mysql-client
 sudo apt install -y postgresql-client
 sudo apt install -y openjdk-11-jdk
+sudo apt install -y dotnet-sdk-5.0
 echo " ##### installing postman ##### "
 sudo snap install postman
 echo " ##### installing brave ##### "
