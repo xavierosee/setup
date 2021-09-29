@@ -79,6 +79,10 @@ sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
  curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
 wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O dotnet.deb && sudo dpkg -i dotnet.deb && rm dotnet.deb
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+sudo add-apt-repository ppa:atareao/telegram
+wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
+cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
 
 ## update software list
 sudo apt update
@@ -99,6 +103,10 @@ echo " ##### installing Apple Music ##### "
 sudo snap install apple-music-for-linux
 echo "##### installing Todoist #####"
 sudo snap install todoist
+sudo apt install -y telegram
+echo "##### installing Slack #####"
+sudo snap install slack
+sudo apt install -y signal-desktop
 
 ### Google Drive sync
 sudo apt install -y google-drive-ocamlfuse
