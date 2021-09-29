@@ -104,3 +104,25 @@ sudo snap install todoist
 sudo apt install -y google-drive-ocamlfuse
 rm -rf ~/.google-drive
 mkdir ~/.google-drive
+
+### Setting up Airpods ###
+sudo sed -i 's/#ControllerMode = dual/ControllerMode = bredr/g' /etc/bluetooth/main.conf
+sudo /etc/init.d/bluetooth restart
+sudo sed -i 's/load-module module-bluetooth-discover/load-module module-bluetooth-discover headset=ofono/g' /etc/pulse/default.pa
+sudo usermod -aG bluetooth pulse
+sudo sed -i 's/<\/busconfig>/<policy user="pulse">\n<allow send_destination="org.ofono"\/>\n<\/policy>\n\n<\/busconfig>/g' /etc/dbus-1/system.d/ofono.conf
+sudo add-apt-repository ppa:smoser/bluetooth
+sudo apt update
+sudo apt install -y ofono-phonesim
+echo "[phonesim]\nDriver=phonesim\nAddress=127.0.0.1\nPort=12345" > phonesim.conf
+sudo mv phonesim.conf /etc/ofono/phonesim.conf
+sudo systemctl restart ofono.service
+sudo mv ~/.setup/linux/ofono-phonesim.service /etc/systemd/system/ofono-phonesim.service
+git clone git://git.kernel.org/pub/scm/network/ofono/ofono.git
+sudo mv ofono /opt/
+sudo cp phonesim-enable-modem.service /etc/systemd/system/phonesim-enable-modem.service
+sudo systemctl daemon-reload
+sudo systemctl enable ofono-phonesim.service
+sudo systemctl enable phonesim-enable-modem.service
+sudo service phonesim-enable-modem start
+pulseaudio -k
