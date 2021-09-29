@@ -134,3 +134,8 @@ sudo systemctl enable ofono-phonesim.service
 sudo systemctl enable phonesim-enable-modem.service
 sudo service phonesim-enable-modem start
 pulseaudio -k
+
+### Setting up fingerprint scanner & login ###
+sudo apt install -y fprintd libpam-fprintd
+fprintd-enroll
+sudo pam-auth-update
