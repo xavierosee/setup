@@ -97,6 +97,8 @@ sudo apt install -y protonvpn
 sudo apt install -y 1password
 echo " ##### installing Apple Music ##### "
 sudo snap install apple-music-for-linux
+echo "##### installing Todoist #####"
+sudo snap install todoist
 
 ### Google Drive sync
 sudo apt install -y google-drive-ocamlfuse
