@@ -83,6 +83,9 @@ sudo add-apt-repository ppa:atareao/telegram
 wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
 cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
 echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+curl "https://build.opensuse.org/projects/home:manuelschneid3r/public_key" | sudo apt-key add -
+echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/home:manuelschneid3r.list
+sudo wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O "/etc/apt/trusted.gpg.d/home:manuelschneid3r.asc"
 
 ## update software list
 sudo apt update
@@ -107,6 +110,7 @@ sudo apt install -y telegram
 echo "##### installing Slack #####"
 sudo snap install slack
 sudo apt install -y signal-desktop
+sudo apt install -y albert
 
 ### Google Drive sync
 sudo apt install -y google-drive-ocamlfuse
@@ -117,3 +121,8 @@ mkdir ~/.google-drive
 sudo apt install -y fprintd libpam-fprintd
 fprintd-enroll
 sudo pam-auth-update
+
+### Enable CopyQ for Albert ###
+sudo mkdir /usr/share/albert/external
+sudo wget -O /usr/share/albert/external/copyq https://gist.githubusercontent.com/BarbUk/d443d09c6649b4b1225c1d6b96d9c7fd/raw/f300b1b88c2088ea0b4f3822b2d2a073e878a380/copyq
+sudo chmod +x /usr/share/albert/external/copyq
