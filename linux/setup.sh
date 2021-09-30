@@ -114,6 +114,8 @@ sudo apt install -y signal-desktop
 sudo apt install -y albert
 sudo apt install -y copyq
 sudo apt install -y zeal
+sudo apt install -y gnome-system-monitor
+sudo apt install -y gnome-disk-utility
 
 ### Google Drive sync
 sudo apt install -y google-drive-ocamlfuse
