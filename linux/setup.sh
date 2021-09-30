@@ -113,6 +113,7 @@ sudo snap install slack
 sudo apt install -y signal-desktop
 sudo apt install -y albert
 sudo apt install -y copyq
+sudo apt install -y zeal
 
 ### Google Drive sync
 sudo apt install -y google-drive-ocamlfuse
