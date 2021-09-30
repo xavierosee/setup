@@ -86,6 +86,7 @@ echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] 
 curl "https://build.opensuse.org/projects/home:manuelschneid3r/public_key" | sudo apt-key add -
 echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/home:manuelschneid3r.list
 sudo wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O "/etc/apt/trusted.gpg.d/home:manuelschneid3r.asc"
+sudo add-apt-repository ppa:hluk/copyq
 
 ## update software list
 sudo apt update
@@ -111,6 +112,7 @@ echo "##### installing Slack #####"
 sudo snap install slack
 sudo apt install -y signal-desktop
 sudo apt install -y albert
+sudo apt install -y copyq
 
 ### Google Drive sync
 sudo apt install -y google-drive-ocamlfuse
@@ -120,7 +122,7 @@ mkdir ~/.google-drive
 ### Setting up fingerprint scanner & login ###
 sudo apt install -y fprintd libpam-fprintd
 fprintd-enroll
-sudo pam-auth-update
+sudo pam-auth-updateY
 
 ### Enable CopyQ for Albert ###
 sudo mkdir /usr/share/albert/external
