@@ -9,7 +9,7 @@ sudo convert $HOME/Pictures/avatar.jpg -resize 200x200 /var/lib/AccountsService/
 # guake settings
 gsettings set guake.general start-at-login true
 gsettings set guake.general use-trayicon false
-gsettings set guake.general window-losefocus false
+gsettings set guake.general window-losefocus true
 gsettings set guake.general window-ontop true
 gsettings set guake.general window-tabbar false
 gsettings set guake.general use-default-font false
