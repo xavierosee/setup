@@ -98,6 +98,9 @@ sudo apt install -y postgresql-client
 sudo apt install -y openjdk-11-jdk
 sudo apt install -y dotnet-sdk-5.0
 sudo apt install -y google-chrome-stable
+sudo apt install -y firefox
+echo "##### installing clipto #####"
+sudo snap install clipto
 echo " ##### installing postman ##### "
 sudo snap install postman
 sudo apt install -y speedtest-cli
