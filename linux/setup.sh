@@ -119,6 +119,7 @@ sudo apt install -y copyq
 sudo apt install -y zeal
 sudo apt install -y gnome-system-monitor
 sudo apt install -y gnome-disk-utility
+sudo apt install -y taskwarrior
 
 ### Google Drive sync
 sudo apt install -y google-drive-ocamlfuse
