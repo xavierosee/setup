@@ -98,7 +98,7 @@ sudo apt install -y postgresql-client
 sudo apt install -y openjdk-11-jdk
 sudo apt install -y dotnet-sdk-5.0
 sudo apt install -y google-chrome-stable
-sudo apt install -y firefox
+sudo apt install -y firefox firefox-trunk
 echo "##### installing clipto #####"
 sudo snap install clipto
 echo " ##### installing postman ##### "
@@ -118,6 +118,7 @@ sudo apt install -y zeal
 sudo apt install -y gnome-system-monitor
 sudo apt install -y gnome-disk-utility
 sudo apt install -y taskwarrior
+sudo apt install -y bugwarrior
 
 ### Google Drive sync
 sudo apt install -y google-drive-ocamlfuse
@@ -127,7 +128,7 @@ mkdir ~/.google-drive
 ### Setting up fingerprint scanner & login ###
 sudo apt install -y fprintd libpam-fprintd
 fprintd-enroll
-sudo pam-auth-updateY
+sudo pam-auth-update
 
 ### Enable CopyQ for Albert ###
 sudo mkdir /usr/share/albert/external
