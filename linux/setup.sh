@@ -87,6 +87,8 @@ curl "https://build.opensuse.org/projects/home:manuelschneid3r/public_key" | sud
 echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/home:manuelschneid3r.list
 sudo wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O "/etc/apt/trusted.gpg.d/home:manuelschneid3r.asc"
 sudo add-apt-repository ppa:hluk/copyq
+curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 
 ## update software list
 sudo apt update
@@ -119,6 +121,8 @@ sudo apt install -y gnome-system-monitor
 sudo apt install -y gnome-disk-utility
 sudo apt install -y taskwarrior
 sudo apt install -y bugwarrior
+sudo apt install -y virtualbox virtualbox-dkms linux-headers-generic vagrant
+
 
 ### Google Drive sync
 sudo apt install -y google-drive-ocamlfuse
