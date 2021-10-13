@@ -95,6 +95,7 @@ sudo apt update
 
 ## Then install the software
 sudo apt install -y tree
+sudo apt install -y ack
 sudo apt install -y mysql-client
 sudo apt install -y postgresql-client
 sudo apt install -y openjdk-11-jdk
