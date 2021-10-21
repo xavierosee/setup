@@ -39,19 +39,6 @@ sudo apt install -y docker-ce
 sudo usermod -aG docker ${USER}
 echo " ##### Docker successfully installed ##### "
 
-# Install Kite
-echo " ##### installing Kite ##### "
-bash -c "$(wget -q -O - https://linux.kite.com/dls/linux/current)"
-echo " ##### Kite successfully installed ##### "
-
-# Install Google Cloud CLI
-echo " ##### installing Google Cloud CLI ##### "
-echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-sudo apt-get install -y apt-transport-https ca-certificates gnupg
-curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
-sudo apt-get update && sudo apt-get install -y google-cloud-sdk google-cloud-sdk-app-engine-python
-echo " ##### Google Cloud Platform SDK successfully installed ##### "
-
 # Install NVM
 echo " ##### installing NVM ##### "
 rm -rf ~/.nvm
@@ -102,8 +89,6 @@ sudo apt install -y openjdk-11-jdk
 sudo apt install -y dotnet-sdk-5.0
 sudo apt install -y google-chrome-stable
 sudo apt install -y firefox-trunk
-echo "##### installing clipto #####"
-sudo snap install clipto
 echo " ##### installing postman ##### "
 sudo snap install postman
 sudo apt install -y speedtest-cli
@@ -115,11 +100,7 @@ sudo apt install -y telegram
 echo "##### installing Slack #####"
 sudo snap install slack
 sudo apt install -y signal-desktop
-sudo apt install -y albert
-sudo apt install -y copyq
 sudo apt install -y zeal
-sudo apt install -y gnome-system-monitor
-sudo apt install -y gnome-disk-utility
 sudo apt install -y taskwarrior
 sudo apt install -y bugwarrior
 sudo apt install -y virtualbox virtualbox-dkms linux-headers-generic vagrant
@@ -134,8 +115,3 @@ mkdir ~/.google-drive
 sudo apt install -y fprintd libpam-fprintd
 fprintd-enroll
 sudo pam-auth-update
-
-### Enable CopyQ for Albert ###
-sudo mkdir /usr/share/albert/external
-sudo wget -O /usr/share/albert/external/copyq https://gist.githubusercontent.com/BarbUk/d443d09c6649b4b1225c1d6b96d9c7fd/raw/f300b1b88c2088ea0b4f3822b2d2a073e878a380/copyq
-sudo chmod +x /usr/share/albert/external/copyq

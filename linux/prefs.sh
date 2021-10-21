@@ -19,3 +19,4 @@ gsettings set guake.style.font allow-bold true
 gsettings set guake.style.font style 'MesloLGS NF 10'
 gsettings set guake.style.background transparency 90
 gsettings set get guake.keybindings.global show-hide 'Favorites'
+gsettings set org.gnome.desktop.session idle-delay 60
