@@ -2,8 +2,8 @@
 
 # change hostname
 echo " ##### Changing HostName ##### "
-hostnamectl set-hostname cloudsdale
-hostnamectl set-hostname "Cloudsdale" --pretty
+hostnamectl set-hostname xavierosee
+hostnamectl set-hostname "Xavier's Laptop" --pretty
 echo " ##### HostName successfully changed ##### "
 
 # upgrade everything
@@ -101,7 +101,7 @@ sudo apt install -y postgresql-client
 sudo apt install -y openjdk-11-jdk
 sudo apt install -y dotnet-sdk-5.0
 sudo apt install -y google-chrome-stable
-sudo apt install -y firefox firefox-trunk
+sudo apt install -y firefox-trunk
 echo "##### installing clipto #####"
 sudo snap install clipto
 echo " ##### installing postman ##### "
