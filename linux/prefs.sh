@@ -6,17 +6,21 @@ echo "##### Loading System Preferences #####"
 gsettings set org.gnome.desktop.background picture-uri file://$HOME/.local/share/backgrounds/fluttershy_bg.jpg
 sudo convert $HOME/Pictures/avatar.jpg -resize 200x200 /var/lib/AccountsService/icons/$USER
 
-# guake settings
-gsettings set guake.general start-at-login true
-gsettings set guake.general use-trayicon false
-gsettings set guake.general window-losefocus true
-gsettings set guake.general window-ontop true
-gsettings set guake.general window-tabbar false
-gsettings set guake.general use-default-font false
-gsettings set guake.style.font palette-name 'Tomorrow Night Eighties'
-gsettings set guake.style.font bold-is-bright true
-gsettings set guake.style.font allow-bold true
-gsettings set guake.style.font style 'MesloLGS NF 10'
-gsettings set guake.style.background transparency 90
-gsettings set get guake.keybindings.global show-hide 'Favorites'
-gsettings set org.gnome.desktop.session idle-delay 60
+gsettings set org.gnome.desktop.session idle-delay 60 # set autolock
+org.gnome.desktop.interface gtk-theme 'Adwaita' # set theme
+
+# touchpad & mouse settings
+gsettings set org.gnome.desktop.peripherals.touchpad click-method 'fingers'
+gsettings set org.gnome.desktop.peripherals.touchpad edge-scrolling-enabled false
+gsettings set org.gnome.desktop.peripherals.touchpad disable-while-typing true
+gsettings set org.gnome.desktop.peripherals.touchpad two-finger-scrolling-enabled true
+gsettings set org.gnome.desktop.peripherals.touchpad send-events 'enabled'
+gsettings set org.gnome.desktop.peripherals.touchpad speed 0.0
+gsettings set org.gnome.desktop.peripherals.touchpad scroll-method 'two-finger-scrolling'
+gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll true
+gsettings set org.gnome.desktop.peripherals.touchpad middle-click-emulation false
+gsettings set org.gnome.desktop.peripherals.touchpad left-handed 'mouse'
+gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
+gsettings set org.gnome.desktop.peripherals.touchpad tap-and-drag true
+gsettings set org.gnome.desktop.interface gtk-enable-primary-paste false
+
