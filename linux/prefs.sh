@@ -7,7 +7,11 @@ gsettings set org.gnome.desktop.background picture-uri file://$HOME/.local/share
 sudo convert $HOME/Pictures/avatar.jpg -resize 200x200 /var/lib/AccountsService/icons/$USER
 
 gsettings set org.gnome.desktop.session idle-delay 60 # set autolock
-org.gnome.desktop.interface gtk-theme 'Adwaita' # set theme
+
+# set theme
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita'
+gsettings set org.gnome.desktop.wm.preferences theme 'Adwaita'
+
 
 # touchpad & mouse settings
 gsettings set org.gnome.desktop.peripherals.touchpad click-method 'fingers'

@@ -76,6 +76,8 @@ sudo wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xU
 sudo add-apt-repository ppa:hluk/copyq
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+sudo add-apt-repository ppa:pipewire-debian/pipewire-upstream
+
 
 ## update software list
 sudo apt update
@@ -104,14 +106,12 @@ sudo apt install -y zeal
 sudo apt install -y taskwarrior
 sudo apt install -y bugwarrior
 sudo apt install -y virtualbox virtualbox-dkms linux-headers-generic vagrant
-
+sudo apt install pipewire libspa-0.2-bluetooth pipewire-audio-client-libraries
 
 ### Google Drive sync
 sudo apt install -y google-drive-ocamlfuse
 rm -rf ~/.google-drive
 mkdir ~/.google-drive
 
-### Setting up fingerprint scanner & login ###
-sudo apt install -y fprintd libpam-fprintd
-fprintd-enroll
-sudo pam-auth-update
+systemctl --user --now enable pipewire-media-session.service
+systemctl --user restart pipewire
