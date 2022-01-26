@@ -17,15 +17,13 @@ echo " ##### installing basic dev tools ##### "
 sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git apt-transport-https ca-certificates software-properties-common guake snapd zsh curl vim imagemagick jq
 echo " ##### installing heroku ##### "
 sudo snap install heroku --classic
-echo " ##### installing vscode ##### "
-sudo snap install code --classic
 echo " ##### installing github cli ##### "
 sudo snap install gh
 
 
-# install fonts for PowerLevel10k
+# install Nerd fonts
 echo " ##### installing Nerd Fonts ##### "
-rm -rf ~/.fonts
+mv ~/.fonts /tmp
 cp -r ~/.setup/linux/fonts ~/.fonts
 echo " ##### Nerd Fonts successfully installed ##### "
 
@@ -39,17 +37,8 @@ sudo apt install -y docker-ce
 sudo usermod -aG docker ${USER}
 echo " ##### Docker successfully installed ##### "
 
-# Install NVM
-echo " ##### installing NVM ##### "
-rm -rf ~/.nvm
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-# source ~/.zshrc
-# nvm install 14.17.6
-# nvm alias default node
-echo " ##### NVM successfully installed ##### "
-
 # Install pyenv
-rm -rf ~/.pyenv
+mv ~/.pyenv /tmp
 curl https://pyenv.run/ | bash
 echo " ##### PyEnv successfully installed ##### "
 
@@ -77,40 +66,28 @@ sudo add-apt-repository ppa:hluk/copyq
 curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
 sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 sudo add-apt-repository ppa:pipewire-debian/pipewire-upstream
+sudo add-apt-repository ppa:vincent-c/ponysay
+sudo add-apt-repository ppa:aos1/diff-so-fancy
+sudo add-apt-repository ppa:neovim-ppa/stable 
+sudo add-apt-repository ppa:ubuntu-mozilla-daily/ppa
 
 
 ## update software list
 sudo apt update
 
 ## Then install the software
-sudo apt install -y tree
-sudo apt install -y ack
-sudo apt install -y mysql-client
-sudo apt install -y postgresql-client
-sudo apt install -y openjdk-11-jdk
-sudo apt install -y dotnet-sdk-5.0
-sudo apt install -y google-chrome-stable
-sudo apt install -y firefox-trunk
+sudo apt install -y tree ack mysql-client postgresql-client openjdk-11-jdk dotnet-sdk-5.0 firefox-trunk speedtest-cli 1password telegram signal-desktop zeal virtualbox virtualbox-dkms linux-headers-generic vagrant pipewire libspa-0.2-bluetooth pipewire-audio-client-libraries prettyping htop diff-so-fancy fortune-mod guake ripgrep linux-firmware neovim python3-neovim golang vim-python-jedi pv
 echo " ##### installing postman ##### "
 sudo snap install postman
-sudo apt install -y speedtest-cli
-sudo apt install -y protonvpn
-sudo apt install -y 1password
 echo " ##### installing Apple Music ##### "
 sudo snap install apple-music-for-linux
-sudo apt install -y telegram
 echo "##### installing Slack #####"
-sudo snap install slack
-sudo apt install -y signal-desktop
-sudo apt install -y zeal
-sudo apt install -y taskwarrior
-sudo apt install -y bugwarrior
-sudo apt install -y virtualbox virtualbox-dkms linux-headers-generic vagrant
-sudo apt install pipewire libspa-0.2-bluetooth pipewire-audio-client-libraries
+wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-amd64.deb && sudo dpkg -i slack-desktop*.deb && mv slack-desktop*.deb /tmp
+wget https://github.com/sharkdp/bat/releases/download/v0.19.0/bat_0.19.0_arm64.deb && dpkg -i bat_*.deb && mv bat_*.deb /tmp
 
 ### Google Drive sync
 sudo apt install -y google-drive-ocamlfuse
-rm -rf ~/.google-drive
+mv ~/.google-drive /tmp
 mkdir ~/.google-drive
 
 systemctl --user --now enable pipewire-media-session.service
