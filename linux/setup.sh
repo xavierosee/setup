@@ -29,11 +29,10 @@ echo " ##### Nerd Fonts successfully installed ##### "
 
 # install Docker
 echo " ##### installing docker ##### "
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-sudo apt update
-apt-cache policy docker-ce
-sudo apt install -y docker-ce
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo usermod -aG docker ${USER}
 echo " ##### Docker successfully installed ##### "
 
@@ -47,7 +46,6 @@ echo " ##### PyEnv successfully installed ##### "
 ### sudo apt-key add ./Repo.keys
 ### sudo cp -R ./sources.list* /etc/apt/
 sudo add-apt-repository --yes ppa:maarten-fonville/android-studio
-curl -s -o vpn.deb https://protonvpn.com/download/protonvpn-stable-release_1.0.1-1_all.deb && sudo dpkg -i vpn.deb && rm -rf vpn.deb
 sudo add-apt-repository --yes ppa:alessandro-strada/ppa
 curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/keyrings/1password-archive-keyring.gpg
 echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/1password-archive-keyring.gpg] https://downloads.1password.com/linux/debian/amd64 stable main' | sudo tee /etc/apt/sources.list.d/1password.list
@@ -56,19 +54,11 @@ sudo mkdir -p /etc/debsig/policies/AC2D62742012EA22/
  sudo mkdir -p /usr/share/debsig/keyrings/AC2D62742012EA22
  curl -sS https://downloads.1password.com/linux/keys/1password.asc | sudo gpg --dearmor --output /usr/share/debsig/keyrings/AC2D62742012EA22/debsig.gpg
 wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O dotnet.deb && sudo dpkg -i dotnet.deb && rm dotnet.deb
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 sudo add-apt-repository ppa:atareao/telegram
 wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
 cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
 echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] https://updates.signal.org/desktop/apt xenial main' | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-curl "https://build.opensuse.org/projects/home:manuelschneid3r/public_key" | sudo apt-key add -
-echo 'deb http://download.opensuse.org/repositories/home:/manuelschneid3r/xUbuntu_20.04/ /' | sudo tee /etc/apt/sources.list.d/home:manuelschneid3r.list
-sudo wget -nv https://download.opensuse.org/repositories/home:manuelschneid3r/xUbuntu_20.04/Release.key -O "/etc/apt/trusted.gpg.d/home:manuelschneid3r.asc"
-sudo add-apt-repository ppa:hluk/copyq
-curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
 sudo add-apt-repository ppa:pipewire-debian/pipewire-upstream
-sudo add-apt-repository ppa:vincent-c/ponysay
 sudo add-apt-repository ppa:aos1/diff-so-fancy
 sudo add-apt-repository ppa:neovim-ppa/stable 
 sudo add-apt-repository ppa:ubuntu-mozilla-daily/ppa
@@ -96,5 +86,5 @@ systemctl --user --now enable pipewire-media-session.service
 systemctl --user restart pipewire
 
 sudo dselect update
-sudo dpkg --set-selections < ./Package.list
+sudo dpkg --set-selections < ./Packages.list
 sudo apt-get dselect-upgrade -y

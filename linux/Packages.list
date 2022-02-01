@@ -56,8 +56,6 @@ bluez-cups					install
 bluez-obexd					install
 bolt						install
 branding-ubuntu					install
-brave-browser					install
-brave-keyring					install
 brltty						install
 bsdmainutils					install
 bsdutils					install
@@ -432,9 +430,6 @@ golang-doc					install
 golang-go					install
 golang-race-detector-runtime			install
 golang-src					install
-google-chrome-stable				install
-google-cloud-sdk				install
-google-cloud-sdk-config-connector		install
 google-drive-ocamlfuse				install
 gpg						install
 gpg-agent					install
@@ -1875,7 +1870,6 @@ shotwell					install
 shotwell-common					install
 signal-desktop					install
 simple-scan					install
-simplenote					install
 simplescreenrecorder				install
 slack-desktop					install
 slirp4netns					install
@@ -1891,9 +1885,6 @@ speedtest-cli					install
 spice-vdagent					install
 squashfs-tools					install
 ssl-cert					install
-steam-launcher					install
-steam-libs-amd64				install
-steam-libs-i386:i386				install
 strace						install
 sudo						install
 switcheroo-control				install
@@ -2064,6 +2055,5 @@ zip						install
 zlib1g:amd64					install
 zlib1g:i386					install
 zlib1g-dev:amd64				install
-zoom						install
 zsh						install
 zsh-common					install

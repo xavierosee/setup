@@ -44,6 +44,7 @@ esac
 
 # zsh, OH-my-zsh & Powerlevel10k
 rm -rf ~/.oh-my-zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 echo " #####  Installing starship  ##### "
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
@@ -59,6 +60,10 @@ echo " ##### installing dotfiles ##### "
 git clone --recurse-submodules https://github.com/xavierosee/dotfiles
 mv dotfiles ~/workspace/xavierosee/dotfiles
 cd ~/workspace/xavierosee/dotfiles && ./install.sh
+
+# Install Plug for nvim
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 # Install Python (latest) and set as global environment (only on mac)
 case $OSTYPE in
