@@ -44,6 +44,8 @@ echo " ##### PyEnv successfully installed ##### "
 
 # Install various software and utilities
 ## First add the repositories
+sudo apt-key add ./Repo.keys
+sudo cp -R ./sources.list* /etc/apt/
 sudo add-apt-repository --yes ppa:maarten-fonville/android-studio
 curl -s -o vpn.deb https://protonvpn.com/download/protonvpn-stable-release_1.0.1-1_all.deb && sudo dpkg -i vpn.deb && rm -rf vpn.deb
 sudo add-apt-repository --yes ppa:alessandro-strada/ppa
@@ -76,7 +78,7 @@ sudo add-apt-repository ppa:ubuntu-mozilla-daily/ppa
 sudo apt update
 
 ## Then install the software
-sudo apt install -y tree ack mysql-client postgresql-client openjdk-11-jdk dotnet-sdk-5.0 firefox-trunk speedtest-cli 1password telegram signal-desktop zeal virtualbox virtualbox-dkms linux-headers-generic vagrant pipewire libspa-0.2-bluetooth pipewire-audio-client-libraries prettyping htop diff-so-fancy fortune-mod guake ripgrep linux-firmware neovim python3-neovim golang vim-python-jedi pv
+sudo apt install -y dselect tree ack mysql-client postgresql-client openjdk-11-jdk dotnet-sdk-5.0 firefox-trunk speedtest-cli 1password telegram signal-desktop zeal virtualbox virtualbox-dkms linux-headers-generic vagrant pipewire libspa-0.2-bluetooth pipewire-audio-client-libraries prettyping htop diff-so-fancy fortune-mod guake ripgrep linux-firmware neovim python3-neovim golang vim-python-jedi pv
 echo " ##### installing postman ##### "
 sudo snap install postman
 echo " ##### installing Apple Music ##### "
@@ -92,3 +94,7 @@ mkdir ~/.google-drive
 
 systemctl --user --now enable pipewire-media-session.service
 systemctl --user restart pipewire
+
+sudo dselect update
+sudo dpkg --set-selections < ./Package.list
+sudo apt-get dselect-upgrade -y
