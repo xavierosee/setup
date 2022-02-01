@@ -14,7 +14,7 @@ echo " ##### packages successfully upgraded ##### "
 
 # setup basic dev tools
 echo " ##### installing basic dev tools ##### "
-sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git apt-transport-https ca-certificates software-properties-common guake snapd zsh curl vim imagemagick jq
+sudo apt install -y build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev libffi-dev liblzma-dev python-openssl git apt-transport-https ca-certificates software-properties-common guake snapd zsh vim imagemagick jq
 echo " ##### installing heroku ##### "
 sudo snap install heroku --classic
 echo " ##### installing github cli ##### "
@@ -24,7 +24,7 @@ sudo snap install gh
 # install Nerd fonts
 echo " ##### installing Nerd Fonts ##### "
 mv ~/.fonts /tmp
-cp -r ~/.setup/linux/fonts ~/.fonts
+cp -r ~/workspace/xavierosee/setup/linux/fonts ~/.fonts
 echo " ##### Nerd Fonts successfully installed ##### "
 
 # install Docker
@@ -44,8 +44,8 @@ echo " ##### PyEnv successfully installed ##### "
 
 # Install various software and utilities
 ## First add the repositories
-sudo apt-key add ./Repo.keys
-sudo cp -R ./sources.list* /etc/apt/
+### sudo apt-key add ./Repo.keys
+### sudo cp -R ./sources.list* /etc/apt/
 sudo add-apt-repository --yes ppa:maarten-fonville/android-studio
 curl -s -o vpn.deb https://protonvpn.com/download/protonvpn-stable-release_1.0.1-1_all.deb && sudo dpkg -i vpn.deb && rm -rf vpn.deb
 sudo add-apt-repository --yes ppa:alessandro-strada/ppa

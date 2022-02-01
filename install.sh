@@ -58,7 +58,7 @@ echo " ##### git configured, do not forget to gh auth login at the end of all th
 echo " ##### installing dotfiles ##### "
 git clone --recurse-submodules https://github.com/xavierosee/dotfiles
 mv dotfiles ~/workspace/xavierosee/dotfiles
-cd ~/.dotfiles && ./install.sh
+cd ~/workspace/xavierosee/dotfiles && ./install.sh
 
 # Install Python (latest) and set as global environment (only on mac)
 case $OSTYPE in
