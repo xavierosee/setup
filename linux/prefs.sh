@@ -2,9 +2,6 @@
 
 echo "##### Loading System Preferences #####"
 
-# user preferences
-gsettings set org.gnome.desktop.background picture-uri file://$HOME/.local/share/backgrounds/fluttershy_bg.jpg
-sudo convert $HOME/Pictures/avatar.jpg -resize 200x200 /var/lib/AccountsService/icons/$USER
 
 gsettings set org.gnome.desktop.session idle-delay 60 # set autolock
 

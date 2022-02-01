@@ -75,6 +75,7 @@ echo " ##### installing Apple Music ##### "
 sudo snap install apple-music-for-linux
 echo "##### installing Slack #####"
 wget https://downloads.slack-edge.com/linux_releases/slack-desktop-4.3.2-amd64.deb && sudo dpkg -i slack-desktop*.deb && mv slack-desktop*.deb /tmp
+
 wget https://github.com/sharkdp/bat/releases/download/v0.19.0/bat_0.19.0_arm64.deb && dpkg -i bat_*.deb && mv bat_*.deb /tmp
 
 ### Google Drive sync
