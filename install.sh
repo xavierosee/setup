@@ -42,18 +42,12 @@ case $OSTYPE in
     ;;
 esac
 
-# zsh, OH-my-zsh & Powerlevel10k
-rm -rf ~/.oh-my-zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-echo " #####  Installing starship  ##### "
-sh -c "$(curl -fsSL https://starship.rs/install.sh)"
-
 # git configuration
 echo " #####  configuring git  ##### "
 git config --global user.email "xrosee@live.cn"
 git config --global user.name "Xavier Rosée"
 sudo git config --system core.editor "vim"
-echo " ##### git configured, do not forget to gh auth login at the end of all this ##### "
+echo " ##### git configured ##### "
 
 # Install dotfiles
 echo " ##### installing dotfiles ##### "
